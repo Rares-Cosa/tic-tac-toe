@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const generateCells = () => {
+    let cellsArray = [];
+
+    for (let row = 0; row < 3; ++row) {  // Generate 9 cells
+      for (let column = 0; column < 3; ++column) {
+        cellsArray.push(
+          <div 
+            className="cell" 
+            style={{ gridColumnStart: column + 1, gridRowStart: row + 1 }} 
+          /> 
+        )
+      }
+    }
+    
+    return cellsArray;
+  };
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload, Rares Cosa.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="xoGrid">{generateCells()}</div>
     </div>
   );
 }
