@@ -1,3 +1,9 @@
+#Tic-tac-toe App
+My description: This is a simple Tic-tac-toe game in JavaScript with React
+
+How to play?
+(Recommended): Play with a friend and click any empty cell, the first player will add an X and the second a O. Win, Play and Repeat!
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
