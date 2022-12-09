@@ -26,8 +26,54 @@ function App() {
         currentPlayer.current = "X";
       
       setXoState(newXoState);
+
+      // Display the winner
+      if (hasWin("X", xoState))
+        alert("Congratulations, X won!");
+      if (hasWin("O", xoState))
+        alert("Congratulations, O won!");
     }  
   };
+
+
+  const hasWin = (player, xoState) => {  // Check if the 'player' won
+    // Check for rows
+    for (let row = 0; row < 3; ++row) {
+      if (
+        xoState[row][0] === player && 
+        xoState[row][1] === player && 
+        xoState[row][2] === player
+      )
+        return true;
+    }
+
+    // Check for columns
+    for (let column = 0; column < 3; ++column) {
+      if (
+        xoState[0][column] === player &&
+        xoState[1][column] === player &&
+        xoState[2][column] === player
+      )
+        return true;
+    }
+
+    // Diagonals
+    if (  // Main diagonal
+      xoState[0][0] === player &&
+      xoState[1][1] === player &&
+      xoState[2][2] === player
+    )
+      return true;
+
+    if (  // Secondary diagonal
+      xoState[0][2] === player &&
+      xoState[1][1] === player && 
+      xoState[2][0] === player
+    )
+      return true;
+
+    return false;  // If none of the above, then has not win  
+  }
 
   
   const generateCells = () => {
